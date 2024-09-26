@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--This file uses JavaScript to generate 'n' amount of prime numbers. 'n' is a value given by the user in a text box.
+    The JavaScript dynamically creates a table of 2 col to hold an index value, and a prime number value.-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers Generator</title>
+    <script type="text/javascript">
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false;  // Numbers less than or equal to 1 are not prime
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Function to generate the first n prime numbers
+        function generatePrimes(n) {
+            let primes = [];
+            let num = 2;  // Start checking from 2 (the first prime number)
+            while (primes.length < n) {
+                if (isPrime(num)) {
+                    primes.push(num);
+                }
+                num++;
+            }
+            return primes;
+        }
+
+        // Function to create the table
+        function createTable(n) {
+            // Clear previous table if it exists
+            const previousTable = document.getElementById('primeTable');
+            if (previousTable) {
+                previousTable.remove();
+            }
+
+            // Generate the primes
+            const primes = generatePrimes(n);
+
+            // Create a new table
+            const table = document.createElement('table');
+            table.setAttribute('id', 'primeTable');
+            table.setAttribute('border', '1');
+
+            // Create table header row
+            const headerRow = document.createElement('tr');
+            const headerIndex = document.createElement('th');
+            headerIndex.innerText = 'Index';
+            const headerPrime = document.createElement('th');
+            headerPrime.innerText = 'Prime Number';
+            headerRow.appendChild(headerIndex);
+            headerRow.appendChild(headerPrime);
+            table.appendChild(headerRow);
+
+            // Fill the table with prime numbers
+            primes.forEach((prime, index) => {
+                const row = document.createElement('tr');
+                
+                const cellIndex = document.createElement('td');
+                cellIndex.innerText = index + 1;  // Index starts from 1
+                
+                const cellPrime = document.createElement('td');
+                cellPrime.innerText = prime;
+
+                row.appendChild(cellIndex);
+                row.appendChild(cellPrime);
+                table.appendChild(row);
+            });
+
+            // Append the table to the body
+            document.body.appendChild(table);
+        }
+
+        // Function to handle button click
+        function onButtonClick() {
+            const input = document.getElementById('numPrimes').value;
+            const n = parseInt(input);
+
+            // Only generate if the input is a valid number and greater than 0
+            if (!isNaN(n) && n > 0) {
+                createTable(n);
+            } else {
+                alert('Please enter a valid positive integer.');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Prime Numbers Generator</h1>
+    
+    <!-- Input field for the user to input number n -->
+    <label for="numPrimes">Enter the number of primes to generate:</label>
+    <input type="text" id="numPrimes" />
+
+    <!-- Button to trigger the prime number generation -->
+    <button onclick="onButtonClick()">OK</button>
+
+    <!-- The table will be dynamically created here -->
+    
+</body>
+</html>

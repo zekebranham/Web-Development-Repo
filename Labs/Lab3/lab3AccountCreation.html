@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>Creating a Form</title>
+	<link rel="stylesheet" href="styleLab3.css" />
+</head>
+<body>
+<div id="wrapper">
+	<h1>Create a New Account</h1>
+	
+	<form method="post" action="showform.php" enctype="multipart/form-data">
+		<fieldset>
+			<h2 class="account">Account</h2>
+			<ul>
+				<li>
+					<label for="first_name">First Name:</label>
+					<input 
+                        type="text" 
+                        id="first_name" 
+                        name="first_name" 
+                        class="medium" 
+                        required="required" 
+                        placeholder="Enter your first name" />
+				</li>
+				<li>
+					<label for="last_name">Last Name:</label>
+					<input 
+                        type="text" 
+                        id="last_name" 
+                        name="last_name" 
+                        class="medium" 
+                        required="required" 
+                        placeholder="Enter your last name" />
+				</li>
+				<li>
+					<label for="email">Email:</label>
+					<input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="medium" 
+                        required="required" 
+                        placeholder="Enter your email"/>
+				</li>
+				<li>
+					<label for="city">City:</label>
+					<input 
+                        type="city" 
+                        id="city" 
+                        name="city" 
+                        class="small" 
+                        required="required" 
+                        placeholder="City"/>
+				</li>
+				<li>
+					<label for="state">State:</label>
+					<select id="state" name="state">
+						<option value="NA">Please Select One</option>
+						<option value="AL">Alabama</option>
+						<option value="AK">Alaska</option>
+						<option value="CA">California</option>
+						<option value="NY">New York</option>
+						<option value="FL">Florida</option>
+					</select>
+				</li>
+				<li>
+					<label for="zip_code">ZIP Code:</label>
+					<input 
+                        type="text" 
+                        id="zip_code" 
+                        name="zip_code" 
+                        class="small" 
+                        required="required" 
+                        placeholder="xxxxx"/>
+				</li>
+				<li>
+					<label for="dob">Data of Birth:</label>
+					<input 
+                        type="text" 
+                        id="dob" 
+                        name="dob" 
+                        class="small" 
+                        required="required" 
+                        placeholder="mm/dd/yyyy"/>
+				</li>
+				<li>
+					<label for="phone_number">Phone Number:</label>
+					<input 
+                        type="text" 
+                        id="phone_number" 
+                        name="phone_number" 
+                        class="medium" 
+                        required="required" 
+                        placeholder="x-xxx-xxx-xxxx"/>
+				</li>
+				<li>
+					<label for="credit_card_info">Credit Card Info:</label>
+					<ul>
+						<li>
+							<label for="cnumber">Number:</label>
+							<input 
+                                type="text" 
+                                id="credit_card_info" 
+                                name="cnumber" 
+                                class="medium" 
+                                required="required" 
+                                placeholder="xxxx-xxxx-xxxx-xxxx" 
+                                pattern="\d{4}-\d{4}-\d{4}-\d{4}" 
+                                title="xxxx-xxxx-xxxx-xxxx"/>
+						</li>
+						<li>
+							<label for="cdate">Month-Year (valid until):</label>
+							<input 
+                                type="text" 
+                                id="credit_card_info" 
+                                name="cdate" class="small" 
+                                required="required" 
+                                placeholder="mm/yy" 
+                                pattern="(0[1-9]|1[0-2])\/\d{2}" 
+                                title="mm/yy"/>
+						</li>
+						<li>
+							<label for="csecurity_num">Security Number (back of card):</label>
+							<input 
+                                type="text" 
+                                id="credit_card_info" 
+                                name="csecurity_num" 
+                                class="small" 
+                                required="required" 
+                                placeholder="xxx" 
+                                pattern="\d{3}" 
+                                title="xxx"/>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</fieldset>
+		
+		<fieldset>
+			<input type="submit" class="create_profile" value="Create Account" />
+		</fieldset>
+	</form>
+</div>
+</body>
+</html>

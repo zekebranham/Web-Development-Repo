@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <!--This file uses JavaScript to prompt users to pick a role, student of faculty.
+    Then, uses a ternary (?) operator to determine what alert to give the screen
+    ternary operator: condition ? expressionIfTrue : expressionIfFalse;
+-->
+<head>
+    
+    <title>Ternary Operator (?) </title>
+    <script type="text/javascript">
+        
+
+        // Main function to handle user input and call the respective calculations
+        function main() {
+            // Ask the user who they are
+            const login = prompt("Are you student or faculty? Select one.").toLowerCase();
+
+            let msg = (login == 'student') ? 'Hi' :
+                    (login == 'faculty') ? 'Greetings' :
+                    (login == '') ? 'No login' :
+                    '';
+                alert(msg);
+        }
+        
+    </script>
+</head>
+<body onload="main()">
+</body>
+</html>

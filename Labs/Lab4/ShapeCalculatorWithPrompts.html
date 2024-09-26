@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <!--This file uses JavaScript to prompt users to pick a shape,
+    then prompts the user to enter in respective shape data, then calculates-->
+<head>
+    
+    <title>Shape Calculator</title>
+    <script type="text/javascript">
+        // Function to calculate the area and perimeter of a circle
+        function calculateCircle(radius) {
+            const area = Math.PI * radius * radius;
+            const perimeter = 2 * Math.PI * radius;
+            return { area: area.toFixed(2), perimeter: perimeter.toFixed(2) };
+        }
+
+        // Function to calculate the area and perimeter of a rectangle
+        function calculateRectangle(height, width) {
+            const area = height * width;
+            const perimeter = 2 * (height + width);
+            return { area: area.toFixed(2), perimeter: perimeter.toFixed(2) };
+        }
+
+        // Function to calculate the area and perimeter of a square
+        function calculateSquare(size) {
+            const area = size * size;
+            const perimeter = 4 * size;
+            return { area: area.toFixed(2), perimeter: perimeter.toFixed(2) };
+        }
+
+        // Main function to handle user input and call the respective calculations
+        function main() {
+            // Display initial message
+            alert("It is my first example with JavaScript");
+
+            // Ask the user for the shape they want to consider
+            const shape = prompt("Do you want to consider a circle, rectangle, or square? (Type the name of the shape)").toLowerCase();
+
+            let result;
+            switch (shape) {
+                case 'circle':
+                    const radius = parseFloat(prompt("Enter the radius of the circle:"));
+                    if (!isNaN(radius)) {
+                        result = calculateCircle(radius);
+                        alert(`Circle - Area: ${result.area}, Perimeter: ${result.perimeter}`);
+                    } else {
+                        alert("Invalid radius input.");
+                    }
+                    break;
+
+                case 'rectangle':
+                    const height = parseFloat(prompt("Enter the height of the rectangle:"));
+                    const width = parseFloat(prompt("Enter the width of the rectangle:"));
+                    if (!isNaN(height) && !isNaN(width)) {
+                        result = calculateRectangle(height, width);
+                        alert(`Rectangle - Area: ${result.area}, Perimeter: ${result.perimeter}`);
+                    } else {
+                        alert("Invalid height or width input.");
+                    }
+                    break;
+
+                case 'square':
+                    const size = parseFloat(prompt("Enter the size of the square:"));
+                    if (!isNaN(size)) {
+                        result = calculateSquare(size);
+                        alert(`Square - Area: ${result.area}, Perimeter: ${result.perimeter}`);
+                    } else {
+                        alert("Invalid size input.");
+                    }
+                    break;
+
+                default:
+                    alert("Invalid shape choice.");
+                    break;
+            }
+        }
+    </script>
+</head>
+<body onload="main()">
+</body>
+</html>

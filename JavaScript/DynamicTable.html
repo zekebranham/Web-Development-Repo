@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Example</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dynamically Generated Table</h2>
+
+<!-- This is where the table will be inserted -->
+<div id="tableContainer"></div>
+
+<script>
+    // Sample data (this could come from an API, user input, etc.)
+    const data = [
+        { name: "John", age: 25, occupation: "Engineer" },
+        { name: "Jane", age: 30, occupation: "Designer" },
+        { name: "Mark", age: 22, occupation: "Developer" }
+    ];
+
+    // Function to create a table and insert it into the DOM
+    function createTable(data) {
+        // 1. Create a table element
+        let table = document.createElement('table');
+
+        // 2. Create the header row
+        let headerRow = document.createElement('tr');
+        let headers = ["Name", "Age", "Occupation"];
+        headers.forEach(headerText => {
+            let header = document.createElement('th');
+            header.textContent = headerText;
+            headerRow.appendChild(header);
+        });
+        table.appendChild(headerRow);
+
+        // 3. Populate the table rows with data
+        data.forEach(person => {
+            let row = document.createElement('tr');
+
+            // Create and append table cells
+            Object.values(person).forEach(text => {
+                let cell = document.createElement('td');
+                cell.textContent = text;
+                row.appendChild(cell);
+            });
+
+            table.appendChild(row);
+        });
+
+        // 4. Insert the table into the DOM
+        document.getElementById('tableContainer').appendChild(table);
+    }
+
+    // Call the function to create the table with the data
+    createTable(data);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <!--This file uses JavaScript to create an array, and uses functions to calculate then display its average and standard deviation
+-->
+<head>
+    
+    <title>Array Functionality </title>
+    <script type="text/javascript">
+        function calculateAverage(array){
+            var tally = 0;
+            var size = array.length;
+            array.forEach(element => {
+                tally += element
+            });
+            var avg = tally / size;
+            return avg.toFixed(2);
+        }
+
+        // Function to calculate the standard deviation of an array
+        function calculateStandardDeviation(array) {
+            // Step 1: Find the average
+            var size = array.length;
+            const avg = calculateAverage(array);  // Get the average
+
+            // Step 2: Find the squared differences from the average
+            var varianceTally = 0;
+            array.forEach(element => {
+                varianceTally += Math.pow(element - avg, 2);  // Squared difference
+            });
+
+            // Step 3: Calculate the variance (average of squared differences)
+            var variance = varianceTally / size;
+
+            // Step 4: Calculate the standard deviation (square root of variance)
+            var stdDeviation = Math.sqrt(variance);
+            return stdDeviation.toFixed(2);  // Return the standard deviation rounded to 2 decimals
+        }
+
+        // Main function to handle user input and call the respective calculations
+        function main() {
+            var x = new Array(12); //12 is the size of the array of course
+            x[0] = 1;
+            x[1] = 2;
+            x[2] = 3;
+            x[3] = 4;
+            x[4] = 5;
+            x[5] = 6;
+            x[6] = 7;
+            x[7] = 8;
+            x[8] = 9;
+            x[9] = 10;
+            x[10] = 11;
+            x[11] = 12;
+
+            const avg = calculateAverage(x);
+            const stdDev = calculateStandardDeviation(x);
+
+            alert(`average of array: ${avg}\nStandard Deviation of array: ${stdDev}`);
+        }
+        
+    </script>
+</head>
+<body onload="main()">
+</body>
+</html>

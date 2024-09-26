@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <title>TV Schedule</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin-top: 10px;
+            border: 2px solid blue;
+            background-color: aquamarine;
+        }
+        td{
+            padding: 10px;
+            border: 1px solid red;
+            text-align: left;
+        }
+        th{
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .row-label{
+            text-align: center;
+            padding-right: 15px;
+        }
+        caption {
+            caption-side: top; /* Position the caption at the top of the table */
+            font-weight: bold;
+            margin-bottom: 10px; /* Add some space between caption and table */
+            font-size: 14px; /* Adjust font size */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>TV Schedule</caption>
+        <tr>
+            <th class="row-label">Time</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+        </tr>
+        <tr>
+            <th class="row-label">8 pm</th>
+            <td>Staring Contest</td>
+            <td colspan="2">Celebrity Hoedown</td>
+            
+        </tr>
+        <tr>
+            <th class="row-label">9 pm</th>
+            <td>Hardy, Har, Har</td>
+            <td>What's for Lunch?</td>
+            <td rowspan="2">Movie of the Week</td>
+        </tr>
+        <tr>
+            <th class="row-label">10 pm</th>
+            <td>Healers, Wheelers, Dealers</td>
+            <td>It's a Crime</td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
